@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+
 	"tfs-grpc/3_grpc_candles/internal/candlespb"
 
 	"google.golang.org/grpc"
@@ -17,10 +18,12 @@ func main() {
 	client := candlespb.NewCandlesServiceClient(conn)
 	fmt.Printf("created client: %v", client)
 
-	client.Candles(context.Background(), &candlespb.CandleRequest{
+	stream, err := client.Candles(context.Background(), &candlespb.CandleRequest{
 		Instrument: "",
 		Period:     0,
 	})
+
+	msg, err := stream.Recv()
 
 	conn.Close()
 }

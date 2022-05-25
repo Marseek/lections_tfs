@@ -171,7 +171,7 @@ func errAsIs() {
 	f := func() error {
 		return fmt.Errorf("opening file error: %w", ErrNotFound)
 	}
-
+	panic("AAAA")
 	err := f()
 
 	_, ok := err.(CustomErr)
@@ -186,4 +186,5 @@ func errAsIs() {
 	var ce CustomErr
 	ok = errors.As(err, &ce)
 	fmt.Printf("%t, %v, %v", ok, ce.Msg, ce.Code)
+
 }

@@ -25,9 +25,9 @@ func main() {
 	// --- errors ---
 
 	// errorDefinition()
-	// errPractices()
-	// errLogContext()
-	// errAsIs()
+	//errPractices()
+	//errLogContext()
+	errAsIs()
 
 	// --- env ---
 

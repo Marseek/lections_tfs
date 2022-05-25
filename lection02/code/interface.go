@@ -97,7 +97,7 @@ func compose() {
 func implementCheck() {
 	var (
 		_ io.Reader = new(bytes.Buffer)
-		// _ io.Reader = "abc" // ошибка компиляции
+		_ io.Reader = "abc" // ошибка компиляции
 	)
 }
 

@@ -15,19 +15,21 @@ func main() {
 	go func() {
 		defer wg.Done()
 		ticker := time.NewTicker(time.Second)
+		ch := ctx.Done()
 		for {
 			select {
-			case <-ctx.Done():
-				fmt.Println("ctx done")
+			case answ := <-ch:
+				fmt.Printf("%T\n", answ)
 				return
 			case <-ticker.C:
-				fmt.Println(time.Now().Format(time.RFC1123))
+				fmt.Println(ctx.Err())
 			}
 		}
 	}()
 
-	time.Sleep(time.Second * 10)
+	time.Sleep(time.Second * 3)
 	cancel()
-
+	fmt.Println(ctx.Err())
+	fmt.Println(ctx.Err())
 	wg.Wait()
 }

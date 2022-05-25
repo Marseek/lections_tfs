@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS estore.events_by_device

@@ -131,7 +131,7 @@ func TestMain(m *testing.M) {
 }
 
 func TestSetupAndTeardown(t *testing.T) {
-	t.Skip("Born to fail")
+	//t.Skip("Born to fail")
 
 	teardown := func() {
 		fmt.Println("After test")
@@ -145,6 +145,7 @@ func TestSetupAndTeardown(t *testing.T) {
 	t.Run("with Cleanup", func(t *testing.T) {
 		setup(t)
 
-		panic("Ooops! I did it again!")
+		//panic("Ooops! I did it again!")
+		fmt.Println("In test")
 	})
 }
