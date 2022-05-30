@@ -1,6 +1,7 @@
 package lecture07
 
 import (
+	"io"
 	"io/ioutil"
 	"net/http"
 )
@@ -17,4 +18,17 @@ func HTTPReq(addr string) (string, error) {
 		return "", err
 	}
 	return string(body), nil
+}
+
+func HTTPHandler(w http.ResponseWriter, r *http.Request) {
+	body, _ := io.ReadAll(r.Body)
+	defer r.Body.Close()
+
+	if string(body) == "pong" {
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
+	_, _ = w.Write(body)
+	w.WriteHeader(http.StatusOK)
 }

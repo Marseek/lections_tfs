@@ -1,6 +1,7 @@
 package lecture07
 
 import (
+	"bytes"
 	"fmt"
 	"net"
 	"net/http"
@@ -8,6 +9,7 @@ import (
 	"strconv"
 	"testing"
 
+	"github.com/go-chi/chi/v5"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -63,4 +65,29 @@ func TestHttpReq_mock(t *testing.T) {
 	assert.NoError(t, err)
 
 	assert.Equal(t, expect, got)
+}
+
+func TestHTTPHandler(t *testing.T) {
+	r := chi.NewRouter()
+
+	r.HandleFunc("/", HTTPHandler)
+
+	testCases := []struct {
+		code int
+		body string
+	}{
+		{http.StatusOK, "ping"},
+		{http.StatusBadRequest, "pong"},
+	}
+
+	for _, tc := range testCases {
+		body := bytes.NewBuffer([]byte(tc.body))
+		req := httptest.NewRequest(http.MethodGet, "/", body)
+
+		w := httptest.NewRecorder()
+		r.ServeHTTP(w, req)
+
+		fmt.Println(w.Code, w.Body.String())
+		assert.Equal(t, tc.code, w.Code)
+	}
 }
