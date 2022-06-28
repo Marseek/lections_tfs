@@ -6,6 +6,7 @@ import (
 	"net/http/httputil"
 	"net/url"
 	"strings"
+	"time"
 )
 
 func main() {
@@ -30,18 +31,18 @@ func main() {
 	}
 	fmt.Println(string(b))
 
-	//c := http.Client{
-	//	Timeout: time.Second * 10,
-	//}
-	//
-	//resp, err := c.Do(req)
-	//if err != nil {
-	//	panic(err)
-	//}
-	//
-	//b, err = httputil.DumpResponse(resp, false)
-	//if err != nil {
-	//	panic(err)
-	//}
-	//fmt.Println(string(b))
+	c := http.Client{
+		Timeout: time.Second * 10,
+	}
+
+	resp, err := c.Do(req)
+	if err != nil {
+		panic(err)
+	}
+
+	b, err = httputil.DumpResponse(resp, true)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(string(b))
 }

@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"log"
 	"net/http"
 	"net/http/httputil"
@@ -14,6 +15,31 @@ func main() {
 
 	newTest()
 	newTest2()
+	handlerTest()
+}
+
+func handlerTest() {
+	s := http.Server{
+		Addr:        ":5000",
+		Handler:     nil,
+		ReadTimeout: time.Second,
+	}
+	http.HandleFunc("/", AdvancedHandler)
+	log.Fatal(s.ListenAndServe())
+}
+
+func AdvancedHandler(w http.ResponseWriter, r *http.Request) {
+	body, err := io.ReadAll(r.Body)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+	defer r.Body.Close()
+	fmt.Printf("body: %s\n", string(body))
+
+	w.WriteHeader(http.StatusAccepted)
+	w.Header().Add("User-Agent", "Mozilla/5.0 (X11; Linux i686; rv:2.0.1) Gecko/20100101 Firefox/4.0.1")
+	_, _ = w.Write([]byte("My name is..."))
 }
 
 func newTest() {
@@ -54,12 +80,12 @@ func newTest2() {
 	}
 	fmt.Println(string(b))
 
-	c := http.Client{
-		Timeout: time.Second * 10,
-	}
-	resp, err := c.Do(r)
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println(resp.Status)
+	//c := http.Client{
+	//	Timeout: time.Second * 10,
+	//}
+	//resp, err := c.Do(r)
+	//if err != nil {
+	//	panic(err)
+	//}
+	//fmt.Println(resp.Status)
 }

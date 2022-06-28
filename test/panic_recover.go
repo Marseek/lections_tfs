@@ -10,12 +10,12 @@ func recoveryFunction() {
 }
 
 func executePanic() {
-	defer recoveryFunction()
+	//defer recoveryFunction()
 	panic("This is Panic Situation")
 	fmt.Println("The function executes Completely")
 }
 
-func main3() {
+func main() {
 	executePanic()
 	fmt.Println("Main block is executed completely...")
 }

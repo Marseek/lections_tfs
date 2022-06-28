@@ -1,0 +1,16 @@
+2022-03-01_11:41:30.51633 2022-03-01T11:41:30Z DBG started httpxrid=0135b368-50fa-4d8d-a909-c09509d2b0cd ip=10.50.163.31 pkg=http
+req="\"DELETE /cameras/3b6e0114-2320-42a8-bce1-538cec375435\"" user-agent="\"Ruby\""
+
+2022-03-01_11:41:30.51641 2022-03-01T11:41:30Z DBG req: `` httpxrid=0135b368-50fa-4d8d-a909-c09509d2b0cd ip=10.50.163.31 pkg=http
+req="\"DELETE /cameras/3b6e0114-2320-42a8-bce1-538cec375435\"" user-agent="\"Ruby\""
+
+2022-03-01_11:41:30.51785 2022-03-01T11:41:30Z DBG query: SELECT "id", "uid", "sn", "ip", "mac", "name", "model", "vendor", "agent_version", "boot_version", "encoder_version",
+"firmware_version", "attach_hash", "k_token", "v_token", "is_online", "is_active", "created_at", "updated_at", "registered_at", "fingerprint", "remote_ip", "offline_since",
+"custom_upstream_addr", "use_custom_upstream", "caps", "caps_updated_at", "online_since", "last_violet_id", "last_proxy_hostname", "reg_hash", "properties", "keep_pass",
+"dvr_id", "dvr_camera_id", "platform", "is_disabled" FROM "violet"."cameras" WHERE  "uid" = ANY($1) ORDER BY "id", args: [[3b6e0114-2320-42a8-bce1-538cec375435]] pkg=db
+
+2022-03-01_11:41:30.51813 2022-03-01T11:41:30Z DBG res body= httpxrid=0135b368-50fa-4d8d-a909-c09509d2b0cd ip=10.50.163.31 pkg=http
+req="\"DELETE /cameras/3b6e0114-2320-42a8-bce1-538cec375435\"" user-agent="\"Ruby\""
+
+2022-03-01_11:41:30.51819 2022-03-01T11:41:30Z DBG completed successfully httpxrid=0135b368-50fa-4d8d-a909-c09509d2b0cd ip=10.50.163.31 latency=1896254 pkg=http
+req="\"DELETE /cameras/3b6e0114-2320-42a8-bce1-538cec375435\"" status=307 user-agent="\"Ruby\""

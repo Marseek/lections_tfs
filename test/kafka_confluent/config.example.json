@@ -1,0 +1,105 @@
+{
+    "client_name": "toolkit",
+    "brokers": {
+        "kafka-1": {
+            "adapter": "kafka",
+            "bootstrap.servers": "",
+            "default":  {
+                "consumer":{
+                    "group_id": "default_group",
+                    "auto.offset.reset": "earliest",
+                    "topics": ["ex", "topic"],
+                    "session.timeout.ms": 6000
+                },
+                "producer":{
+                    "group_id": "default_group",
+                    "auto.offset.reset": "earliest",
+                    "topics": ["ex", "topic"]
+                }
+            }
+        },
+        "rabbitmq-1": {
+            "address": "amqp://localhost:5672/",
+            "adapter": "amqp",
+            "settings": {},
+            "default": {
+                "exchange": {
+                    "exchange_type": "fanout",
+                    "durable": false,
+                    "auto_delete": true,
+                    "internal": false,
+                    "noWait": false,
+                    "args": {}
+                },
+                "consumer": {
+                    "routing_keys": [
+                        ""
+                    ],
+                    "consumer": "toolkit",
+                    "auto-ack": true,
+                    "exclusive": false,
+                    "no_local": false,
+                    "durable": false,
+                    "auto_delete": true,
+                    "args": {},
+                    "noWait": false,
+                    "dlx": {
+                        "ttl": "0s",
+                        "queue": "",
+                        "exchange": ""
+                    },
+                    "dlx_v2": {
+                        "ttl": "0s"
+                    },
+                    "qos": {
+                        "prefetch_count": 1,
+                        "prefetch_size": 0,
+                        "global": false
+                    },
+                    "acknowledger": {
+                        "ack_multiple": false,
+                        "nack_multiple": false,
+                        "requeue": false
+                    }
+                },
+                "producer": {
+                    "immediate": false,
+                    "priority": 0,
+                    "mandatory": false,
+                    "content_type": "application/json"
+                }
+            }
+        }
+    },
+    "channels": {
+        "toolkit-other-service-channel": {
+            "broker": "rabbitmq-1",
+            "settings": {
+                "exchange": {
+                    "exchange": "toolkit-messaging-test"
+                },
+                "consumer": {
+                    "queue_name": "{{.exchange}}--{{.host}}--{{.consumer}}--test"
+                }
+            }
+        },
+        "redis-example-channel": {
+            "broker": "kafka-1",
+            "settings": {
+                "consumer": {
+                    "group_id": "default_group",
+                    "auto.offset.reset": "earliest",
+                    "topics": [
+                        "ex",
+                        "topic"
+                    ],
+                    "session.timeout.ms": 6000
+                },
+                "producer": {
+                    "topic": "topic_example",
+                    "key": "key_example"
+                }
+            }
+        }
+    }
+}

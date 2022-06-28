@@ -1,0 +1,48 @@
+2022-03-01_12:29:16.27490 2022-03-01T12:29:16Z DBG started httpxrid=a7987265-874a-4f88-876b-219445e9da1d ip=10.50.33.83 pkg=http
+req="\"DELETE /dvrs/869/vms-cameras\"" user-agent="\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36\""
+
+2022-03-01_12:29:16.27503 2022-03-01T12:29:16Z DBG req: "{\n  \"ids\": [\n    3\n  ]\n}" httpxrid=a7987265-874a-4f88-876b-219445e9da1d ip=10.50.33.83 pkg=http
+req="\"DELETE /dvrs/869/vms-cameras\"" user-agent="\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36\""
+
+2022-03-01_12:29:16.27587 2022-03-01T12:29:16Z DBG query: SELECT "id", "uid", "sn", "ip", "remote_ip", "mac", "name", "model", "vendor", "platform", "agent_version",
+"firmware_version", "attach_hash", "v_token", "online_since", "offline_since", "last_violet_id", "last_proxy_hostname", "properties", "is_online", "is_active", "created_at",
+"updated_at", "caps", "caps_updated_at", "device_type", "meta" FROM "violet"."dvrs" WHERE  "id" = ANY($1) ORDER BY "id", args: [{869}] pkg=db
+
+2022-03-01_12:29:16.27612 2022-03-01T12:29:16Z INF sending VmsDeleteCamerasRequest {"ids":[{"id":3}]} dvr_id=869 httpxrid=a7987265-874a-4f88-876b-219445e9da1d
+pkg=green remote_ip={"IP":"10.50.163.11","Port":35756,"Zone":""} req=out req_id=197
+
+2022-03-01_12:29:16.27638 2022-03-01T12:29:16Z DBG res body="{\"accepted\":true}" httpxrid=a7987265-874a-4f88-876b-219445e9da1d ip=10.50.33.83 pkg=http
+req="\"DELETE /dvrs/869/vms-cameras\"" user-agent="\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36\""
+
+2022-03-01_12:29:16.27646 2022-03-01T12:29:16Z DBG completed successfully httpxrid=a7987265-874a-4f88-876b-219445e9da1d ip=10.50.33.83 latency=1504005 pkg=http
+req="\"DELETE /dvrs/869/vms-cameras\"" status=202 user-agent="\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36\""
+
+
+DBG started httpxrid=c63fce50-4778-4151-b722-d212293bdc6b ip=10.50.32.92 pkg=http req="\"DELETE /dvrs/640/vms-cameras\"" user-agent="\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36\""
+
+DBG req: "{\n  \"ids\": [\n    36611\n  ]\n}" httpxrid=c63fce50-4778-4151-b722-d212293bdc6b ip=10.50.32.92 pkg=http
+req="\"DELETE /dvrs/640/vms-cameras\"" user-agent="\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36\""
+
+DBG query: SELECT "id", "uid", "sn", "ip", "remote_ip", "mac", "name", "model", "vendor", "platform", "agent_version", "firmware_version", "attach_hash", "v_token", "online_since", "offline_since",
+"last_violet_id", "last_proxy_hostname", "properties", "is_online", "is_active", "created_at", "updated_at", "caps", "caps_updated_at", "device_type", "meta" FROM "violet"."dvrs" WHERE
+"id" = ANY($1) ORDER BY "id", args: [{640}] pkg=db
+
+DBG res body="{\"accepted\":true}" httpxrid=c63fce50-4778-4151-b722-d212293bdc6b ip=10.50.32.92 pkg=http req="\"DELETE /dvrs/640/vms-cameras\"" user-agent="\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36\""
+DBG completed successfully httpxrid=c63fce50-4778-4151-b722-d212293bdc6b ip=10.50.32.92 latency=4832672 pkg=http req="\"DELETE /dvrs/640/vms-cameras\"" status=202 user-agent="\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36\""
+
+INF sending VmsDeleteCamerasRequest {"ids":[{"id":36611}]} dvr_id=640 httpxrid=4e6e2c36-1ce7-4d08-b881-632f6242992f pkg=green remote_ip={"IP":"10.50.163.11","Port":31648,"Zone":""} req=out req_id=70
+WRN ERROR_RESPONSE: "cannot find host with id: 36611" dvr_id=640 pkg=green remote_ip={"IP":"10.50.163.11","Port":31648,"Zone":""} req=in req_id=70 xreqid=b39f8f80-3aea-4074-b090-d30451d012ea
+
+
+
+
+
+DBG started httpxrid=6ecf8570-2648-4be4-a71f-92bc73dd335d ip=10.50.32.92 pkg=http req="\"DELETE /dvrs/640/vms-cameras\"" user-agent="\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36\""
+DBG req: "{\n  \"ids\": [\n    36611\n  ]\n}" httpxrid=6ecf8570-2648-4be4-a71f-92bc73dd335d ip=10.50.32.92 pkg=http req="\"DELETE /dvrs/640/vms-cameras\"" user-agent="\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36\""
+DBG query: SELECT "id", "uid", "sn", "ip", "remote_ip", "mac", "name", "model", "vendor", "platform", "agent_version", "firmware_version", "attach_hash", "v_token", "online_since", "offline_since", "last_violet_id", "last_proxy_hostname", "properties", "is_online", "is_active", "created_at", "updated_at", "caps", "caps_updated_at", "device_type", "meta" FROM "violet"."dvrs" WHERE  "id" = ANY($1) ORDER BY "id", args: [{640}] pkg=db
+INF sending VmsDeleteCamerasRequest {"ids":[{"id":36611}]} dvr_id=640 httpxrid=6ecf8570-2648-4be4-a71f-92bc73dd335d pkg=green remote_ip={"IP":"10.50.163.11","Port":31648,"Zone":""} req=out req_id=141
+DBG res body="{\"accepted\":true}" httpxrid=6ecf8570-2648-4be4-a71f-92bc73dd335d ip=10.50.32.92 pkg=http req="\"DELETE /dvrs/640/vms-cameras\"" user-agent="\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36\""
+DBG completed successfully httpxrid=6ecf8570-2648-4be4-a71f-92bc73dd335d ip=10.50.32.92 latency=2160133 pkg=http req="\"DELETE /dvrs/640/vms-cameras\"" status=202 user-agent="\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36\""
+DBG packet: Packet{req: 141, type: 1000, msg: 33, data: 0} dvr_id=640 pkg=green remote_ip={"IP":"10.50.163.11","Port":31648,"Zone":""} req=in req_id=141 xreqid=c22dcdd5-34ff-49e7-8de9-23b4951032e2
+WRN ERROR_RESPONSE: "cannot find host with id: 36611" dvr_id=640 pkg=green remote_ip={"IP":"10.50.163.11","Port":31648,"Zone":""} req=in req_id=141 xreqid=c22dcdd5-34ff-49e7-8de9-23b4951032e2
+DBG handled ERROR_RESPONSE in 167.727µs dvr_id=640 pkg=green remote_ip={"IP":"10.50.163.11","Port":31648,"Zone":""} req=in req_id=141 xreqid=c22dcdd5-34ff-49e7-8de9-23b4951032e2

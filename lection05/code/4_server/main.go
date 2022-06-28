@@ -26,6 +26,7 @@ func HelloHandler(w http.ResponseWriter, r *http.Request) {
 func AdvancedHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Printf("method: %s\n", r.Method)
 	fmt.Printf("query values: %v\n", r.URL.Query())
+	fmt.Printf("query id value: %v\n", r.URL.Query().Get("id"))
 	fmt.Printf("headers: %v\n", r.Header)
 
 	body, err := io.ReadAll(r.Body)
