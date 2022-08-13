@@ -51,8 +51,8 @@ func wg_wait_example() {
 		}(m, i, &wc)
 
 	}
-	//wc.Wait()
-	//close(m)
+	wc.Wait()
+	close(m)
 	for q := range m {
 		fmt.Println(q)
 	}

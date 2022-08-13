@@ -16,7 +16,6 @@ type data struct {
 }
 
 func main() {
-
 	client = redis.NewClient(&redis.Options{
 		Addr:     "localhost:6379",
 		Password: "",

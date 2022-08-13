@@ -31,8 +31,8 @@ func main() {
 
 	validate = validator.New()
 
-	//validateStruct()
-	validateVariable()
+	validateStruct()
+	//validateVariable()
 }
 
 func validateStruct() {

@@ -1,0 +1,10 @@
+services:
+  postgres:
+    image: "postgres:12.3-alpine"
+    environment:
+      - POSTGRES_USER=violet
+      - POSTGRES_PASSWORD=violet
+      - POSTGRES_DB=violet
+    ports:
+      - "5432:5432"
+      - "5442:5432"

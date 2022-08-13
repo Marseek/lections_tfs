@@ -12,6 +12,10 @@ func main() {
 		"bootstrap.servers": "localhost",
 		"group.id":          "myGroup",
 		"auto.offset.reset": "earliest",
+		//"security.protocol": "SASL_PLAINTEXT",
+		//"sasl.mechanism":    "PLAIN",
+		//"sasl.username":     "admin",
+		//"sasl.password":     "6giiA6tDf9ElmUH",
 	})
 
 	if err != nil {

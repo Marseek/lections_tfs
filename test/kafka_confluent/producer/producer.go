@@ -13,7 +13,9 @@ func main() {
 	bootstrapServers := "localhost"
 	topic := "myTopic"
 
-	p, err := kafka.NewProducer(&kafka.ConfigMap{"bootstrap.servers": bootstrapServers})
+	p, err := kafka.NewProducer(&kafka.ConfigMap{
+		"bootstrap.servers": bootstrapServers,
+	})
 
 	if err != nil {
 		fmt.Printf("Failed to create producer: %s\n", err)
